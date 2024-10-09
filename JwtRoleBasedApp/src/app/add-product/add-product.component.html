@@ -1,0 +1,11 @@
+<!-- src/app/add-product/add-product.component.html -->
+<div>
+    <h2>Add Product</h2>
+    <form (ngSubmit)="addProduct()">
+      <input type="text" [(ngModel)]="product.name" name="name" placeholder="Product Name" required />
+      <input type="text" [(ngModel)]="product.description" name="description" placeholder="Description" required />
+      <input type="number" [(ngModel)]="product.price" name="price" placeholder="Price" required />
+      <button type="submit">Add Product</button>
+    </form>
+  </div>
+  

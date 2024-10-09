@@ -1,0 +1,19 @@
+<!-- src/app/app.component.html -->
+<div>
+  <nav>
+    <a routerLink="/login" *ngIf="!isLoggedIn()">Login</a>
+    <a routerLink="/register" *ngIf="!isLoggedIn()">Register</a>
+    
+    <!-- Display username -->
+    <span *ngIf="username">Welcome, {{ username }}</span>
+
+    <!-- Admin can see both product list and add product -->
+    <a routerLink="/product-list" *ngIf="isLoggedIn() && (role === 'Admin' || role === 'User')">Product List</a>
+    <a routerLink="/add-product" *ngIf="isLoggedIn() && role === 'Admin'">Add Product</a>
+
+    <!-- Logout button for all logged-in users -->
+    <button (click)="logout()" *ngIf="isLoggedIn()">Logout</button>
+  </nav>
+ 
+  <router-outlet></router-outlet>
+</div>
